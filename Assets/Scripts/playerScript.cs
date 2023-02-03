@@ -10,9 +10,12 @@ public class playerScript : MonoBehaviour
 
     public float cameraDistance = 5f;
     public float cameraSpeed = 0.1f;
+    public float mouseSpeed = 0.2f;
 
     private Vector3 focusPoint;
     private Vector2 orbitAngles = new Vector2(0f, 0f);
+    private bool mouseDragging = false;
+    private Vector2 dragDir = Vector2.zero;
 
     // Start is called before the first frame update
     void Start()
@@ -23,9 +26,28 @@ public class playerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Handle mouse drag
+
+        if (Input.GetMouseButton(1))
+        {
+            Vector2 mousePos = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
+            if (!mouseDragging)
+            {
+                dragDir = mousePos;
+            }
+            mouseDragging = true;
+            dragDir = dragDir - mousePos;
+            orbitAngles = new Vector2(0f, orbitAngles.y + dragDir.x * mouseSpeed);
+            dragDir = mousePos;
+        }
+        else
+        {
+            mouseDragging = false;
+            dragDir = Vector2.zero;
+        }
 
 
-
+        // Move and rotate the camera
         if (cameraTarget != null)
         {
 
@@ -37,7 +59,7 @@ public class playerScript : MonoBehaviour
         }
     }
 
-
+    // Tween the camera movement 
     private void UpdateFocusPoint()
     {
         Vector3 targetPoint = cameraTarget.transform.position;

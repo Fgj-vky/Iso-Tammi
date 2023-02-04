@@ -40,6 +40,8 @@ public class playerScript : MonoBehaviour
     private int cardIndex = -1; // -1 is no card fyi
 
     [SerializeField]
+    private int maxCardCount = 4;
+    [SerializeField]
     private int cardThreshold;
     private int cardPoints;
     [SerializeField]
@@ -63,7 +65,7 @@ public class playerScript : MonoBehaviour
         if(cardTimer < 0)
         {
             cardTimer = cardTimeout;
-            if(cardPoints >= cardThreshold)
+            if(cardPoints >= cardThreshold && hotBarController.CardCount < maxCardCount)
             {
                 hotBarController.AddRandomCard();
                 cardPoints -= cardThreshold;

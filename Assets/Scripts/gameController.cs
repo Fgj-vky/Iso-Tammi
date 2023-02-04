@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class enemyController : MonoBehaviour
+public class gameController : MonoBehaviour
 {
     public List<Transform> trees = new List<Transform>();
 

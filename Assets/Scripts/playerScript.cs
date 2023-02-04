@@ -51,6 +51,9 @@ public class playerScript : MonoBehaviour
             dragDir = Vector2.zero;
         }
 
+
+  
+
         // Move and rotate the camera
         UpdateFocusPoint();
         if (cameraTarget != null)

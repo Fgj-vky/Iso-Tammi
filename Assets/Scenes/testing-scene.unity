@@ -347,6 +347,10 @@ PrefabInstance:
       propertyPath: cameraHeight
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 415593848407715062, guid: d7e211ab4a36f4195a30838063ebbfba, type: 3}
+      propertyPath: maxCameraDistance
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 704134294255030812, guid: d7e211ab4a36f4195a30838063ebbfba, type: 3}
       propertyPath: far clip plane
       value: 1000

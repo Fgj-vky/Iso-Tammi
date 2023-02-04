@@ -19,6 +19,10 @@ public class playerScript : MonoBehaviour
     private float cameraSpeed = 0.1f;
     [SerializeField]
     private float mouseSpeed = 0.2f;
+    [SerializeField]
+    private float minCameraDistance = 3f;
+    [SerializeField]
+    private float maxCameraDistance = 20f;
 
     private treeScript targetTreeScript;
     private gameController gameController;
@@ -77,6 +81,19 @@ public class playerScript : MonoBehaviour
             }
 
 
+        }
+
+        // Zoom camera
+        float mouseScroll = Input.mouseScrollDelta.y;
+        if (mouseScroll != 0)
+        {
+            cameraDistance -= mouseScroll;
+            if (cameraDistance > maxCameraDistance)
+            {
+                cameraDistance = maxCameraDistance;
+            } else if(cameraDistance < minCameraDistance) {
+                cameraDistance = minCameraDistance;
+            }
         }
 
         // Move and rotate the camera

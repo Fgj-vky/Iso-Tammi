@@ -5,6 +5,7 @@ using UnityEngine;
 public class enemyScript : MonoBehaviour
 {
     private Transform playerTransform;
+    private playerScript playerScript;
 
     [SerializeField]
     private float speed;
@@ -20,6 +21,8 @@ public class enemyScript : MonoBehaviour
     private int health;
     [SerializeField]
     private GameObject healthBar;
+    [SerializeField]
+    public int pointValue;
 
     private GameObject? target = null;
     private treeScript? targetTreeScript = null;
@@ -30,6 +33,7 @@ public class enemyScript : MonoBehaviour
     void Start()
     {
         playerTransform = GameObject.Find("Camera").transform;
+        playerScript = GameObject.Find("Player").GetComponent<playerScript>();
         health = maxHealth;
     }
 
@@ -81,6 +85,7 @@ public class enemyScript : MonoBehaviour
         if (health < 1)
         {
             controller.RemoveEnemy(gameObject, this);
+            this.playerScript.AddPoints(pointValue);
             Destroy(gameObject);
         }
         else if (health > maxHealth)

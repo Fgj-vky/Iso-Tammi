@@ -10,7 +10,7 @@ public class treeScript : MonoBehaviour
     public GameObject healthBar;
 
     [SerializeField]
-    private GameObject projectile;
+    protected GameObject projectile;
 
     public Transform projectileSpawnPoint;
 
@@ -36,7 +36,7 @@ public class treeScript : MonoBehaviour
     private GameObject playerCamera;
 
     // Start is called before the first frame update
-    void Start()
+    protected void Start()
     {
         playerCamera = GameObject.Find("Player").transform.GetChild(0).gameObject;
         health = maxHealth;
@@ -56,8 +56,22 @@ public class treeScript : MonoBehaviour
         }
     }
 
-    private bool CanAttack(float dist)
+    protected bool CanAttack()
     {
+        if (transform == null)
+        {
+            return false;
+        }
+
+        var closestE = controller.GetClosestEnemy(transform.position);
+
+        if (closestE == null)
+        {
+            return false;
+        }
+
+        var dist = Vector3.Distance(transform.position, closestE.transform.position);
+
         if (dist > attackRange)
         {
             return false;
@@ -111,23 +125,9 @@ public class treeScript : MonoBehaviour
         audioSource.Play();
     }
 
-    public void Attack()
+    public virtual void Attack()
     {
-        if(transform == null)
-        {
-            return;
-        }
-
-        var closestE = controller.GetClosestEnemy(transform.position);
-
-        if (closestE == null)
-        {
-            return;
-        }
-
-        var dist = Vector3.Distance(transform.position, closestE.transform.position);
-
-        if (!CanAttack(dist))
+        if (!CanAttack())
         {
             return;
         }

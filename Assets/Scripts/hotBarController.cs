@@ -18,10 +18,10 @@ public class hotBarController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        AddCard(0);
-        AddCard(0);
-        AddCard(0);
-        AddCard(0);
+        AddCard(1);
+        AddCard(1);
+        AddCard(1);
+        AddCard(1);
 
 
     }

@@ -29,7 +29,7 @@ public class enemyScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        playerTransform = GameObject.Find("Player").transform;
+        playerTransform = GameObject.Find("Camera").transform;
         health = maxHealth;
     }
 
@@ -37,7 +37,8 @@ public class enemyScript : MonoBehaviour
     void Update()
     {
         transform.LookAt(playerTransform);
-        transform.eulerAngles = new Vector3 (0, transform.eulerAngles.y, transform.eulerAngles.z);  
+        transform.eulerAngles = new Vector3 (0, transform.eulerAngles.y, transform.eulerAngles.z);
+        healthBar.transform.parent.transform.LookAt(playerTransform);
     }
 
     public void Move(gameController controller)

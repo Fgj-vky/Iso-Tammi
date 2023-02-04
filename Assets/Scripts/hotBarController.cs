@@ -12,6 +12,7 @@ public class hotBarController : MonoBehaviour
     private GameObject player;
 
     private List<GameObject> cards = new List<GameObject>();
+    private GameObject selectedCard = null;
 
     public int CardCount { get { return cards.Count; } }
 
@@ -51,8 +52,18 @@ public class hotBarController : MonoBehaviour
             if (card != null)
             {
                 player.GetComponent<playerScript>().SetCardIndex(card.GetComponent<cardController>().index);
+
+                if (selectedCard != null)
+                {
+                    AddCard(selectedCard.GetComponent<cardController>().index);
+                    ClearSelectedCard();
+                }
+
+                //selectedCard = null;
+                selectedCard = card;
+                selectedCard.GetComponent<RectTransform>().localPosition = new Vector3(300f, 0f, 0f);
+
                 cards.Remove(card);
-                Destroy(card);
                 AlignCards();
             }
         }
@@ -65,7 +76,6 @@ public class hotBarController : MonoBehaviour
         GameObject card = Instantiate(cardPrefabs[index], new Vector3(-100f, -100f, 0f), Quaternion.identity);
         cards.Add(card);
         card.transform.SetParent(transform, false);
-        //card.GetComponent<RectTransform>().localScale = canvasScale;
         AlignCards();
     }
 
@@ -89,6 +99,12 @@ public class hotBarController : MonoBehaviour
         }
 
 
+    }
+
+    public void ClearSelectedCard()
+    {
+        Destroy(selectedCard);
+        selectedCard = null;
     }
 
 }

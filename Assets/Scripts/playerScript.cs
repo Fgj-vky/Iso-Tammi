@@ -106,6 +106,7 @@ public class playerScript : MonoBehaviour
                     this.gameController.AddTree(tree);
                     tree.GetComponent<treeScript>().controller = gameController;
                     cardIndex = -1;
+                    hotBarController.GetComponent<hotBarController>().ClearSelectedCard();
                 }
             }
 

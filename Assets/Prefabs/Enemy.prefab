@@ -215,6 +215,7 @@ MonoBehaviour:
   maxHealth: 100
   healthBar: {fileID: 6937195463429535061}
   pointValue: 1
+  audioSource: {fileID: 7128168081017726664}
 --- !u!135 &4180108622703670767
 SphereCollider:
   m_ObjectHideFlags: 0

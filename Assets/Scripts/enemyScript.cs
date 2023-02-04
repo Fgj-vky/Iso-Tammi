@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyController : MonoBehaviour
+public class enemyScript : MonoBehaviour
 {
     private Transform playerTransform;
 
@@ -17,5 +17,10 @@ public class EnemyController : MonoBehaviour
     {
         transform.LookAt(playerTransform);
         transform.eulerAngles = new Vector3 (0, transform.eulerAngles.y, transform.eulerAngles.z);  
+    }
+    
+    public void GetHit()
+    {
+
     }
 }

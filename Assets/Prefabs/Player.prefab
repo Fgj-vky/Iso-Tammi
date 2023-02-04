@@ -484,6 +484,8 @@ MonoBehaviour:
   cardPrefabs:
   - {fileID: 2109936874675280445, guid: 5e6b0afd242424ebd91055507bcd8e70, type: 3}
   - {fileID: 5979020289058060222, guid: 6ff35747939674aa69aded24f0e8d4d4, type: 3}
+  - {fileID: 7761585307981725189, guid: 3fdcc0d66c889dd4c9c90f39e3106060, type: 3}
+  - {fileID: 8380019734268283442, guid: 4bc7a98cafa67f048b2aa122c1701b34, type: 3}
   player: {fileID: 9219250404387403674}
 --- !u!1 &9219250404387403674
 GameObject:
@@ -543,5 +545,6 @@ MonoBehaviour:
   maxCameraDistance: 20
   maxCameraAngle: 10
   minCameraAngle: -20
+  maxCardCount: 4
   cardThreshold: 0
   cardTimeout: 0.5

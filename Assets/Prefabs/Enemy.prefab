@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7461608935371954189}
   - component: {fileID: 6323204520871838943}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: -2542791193519030533}
   - component: {fileID: 4180108622703670767}
   - component: {fileID: 6915029217173847053}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
@@ -161,7 +161,7 @@ Rigidbody:
   m_GameObject: {fileID: 1075681311694336121}
   serializedVersion: 4
   m_Mass: 1
-  m_Drag: 0
+  m_Drag: 1000
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}

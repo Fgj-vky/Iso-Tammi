@@ -13,13 +13,20 @@ public class hotBarController : MonoBehaviour
 
     private List<GameObject> cards = new List<GameObject>();
 
+    private Vector3 canvasScale; 
+
     // Start is called before the first frame update
     void Start()
     {
+        canvasScale = gameObject.transform.parent.GetComponent<RectTransform>().localScale;
+
+
         AddCard(1);
         AddCard(1);
         AddCard(0);
         AddCard(0);
+
+
     }
 
     // Update is called once per frame
@@ -60,7 +67,8 @@ public class hotBarController : MonoBehaviour
 
         GameObject card = Instantiate(cardPrefabs[index], new Vector3(-100f, -100f, 0f), Quaternion.identity);
         cards.Add(card);
-        card.transform.SetParent(transform);
+        card.transform.SetParent(transform, false);
+        //card.GetComponent<RectTransform>().localScale = canvasScale;
         AlignCards();
     }
 

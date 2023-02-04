@@ -26,6 +26,7 @@ public class playerScript : MonoBehaviour
 
     private treeScript targetTreeScript;
     private gameController gameController;
+    private hotBarController hotBarController;
 
     private Vector3 focusPoint;
     private Vector2 orbitAngles = new Vector2(0f, 0f);
@@ -38,16 +39,36 @@ public class playerScript : MonoBehaviour
 
     private int cardIndex = -1; // -1 is no card fyi
 
+    [SerializeField]
+    private int cardThreshold;
+    private int cardPoints;
+    [SerializeField]
+    private float cardTimeout = 0.5f;
+    private float cardTimer;
+
     // Start is called before the first frame update
     void Start()
     {
+        cardTimer = cardTimeout;
+        cardPoints = 0;
         gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<gameController>();
+        hotBarController = GameObject.FindGameObjectWithTag("HotBarController").GetComponent<hotBarController>();
     }
 
     // Update is called once per frame
     void Update()
     {
         // Handle mouse drag
+        cardTimer -= Time.deltaTime;
+        if(cardTimer < 0)
+        {
+            cardTimer = cardTimeout;
+            if(cardPoints >= cardThreshold)
+            {
+                hotBarController.AddRandomCard();
+                cardPoints -= cardThreshold;
+            }
+        }
 
         if (Input.GetMouseButton(1))
         {
@@ -206,5 +227,10 @@ public class playerScript : MonoBehaviour
     public void SetCardIndex(int index)
     {
         cardIndex = index;
+    }
+
+    public void AddPoints(int amount)
+    {
+        cardPoints += amount;
     }
 }

@@ -7,17 +7,19 @@ public class hotBarController : MonoBehaviour
 {
 
     [SerializeField]
-    private GameObject card;
+    private GameObject[] cardPrefabs;
+    [SerializeField]
+    private GameObject player;
 
     private List<GameObject> cards = new List<GameObject>();
 
     // Start is called before the first frame update
     void Start()
     {
-        AddCard();
-        AddCard();
-        AddCard();
-        AddCard();
+        AddCard(1);
+        AddCard(1);
+        AddCard(0);
+        AddCard(0);
     }
 
     // Update is called once per frame
@@ -44,6 +46,7 @@ public class hotBarController : MonoBehaviour
 
             if (card != null)
             {
+                player.GetComponent<playerScript>().SetCardIndex(card.GetComponent<cardController>().index);
                 cards.Remove(card);
                 Destroy(card);
                 AlignCards();
@@ -52,10 +55,10 @@ public class hotBarController : MonoBehaviour
         
     }
 
-    public void AddCard()
+    public void AddCard(int index)
     {
 
-        GameObject card = Instantiate(this.card, new Vector3(-100f, -100f, 0f), Quaternion.identity);
+        GameObject card = Instantiate(cardPrefabs[index], new Vector3(-100f, -100f, 0f), Quaternion.identity);
         cards.Add(card);
         card.transform.SetParent(transform);
         AlignCards();
@@ -63,10 +66,8 @@ public class hotBarController : MonoBehaviour
 
     private void AlignCards()
     {
-        float hotbarWidth = gameObject.GetComponent<RectTransform>().rect.width;
-        float hotbarHeight = gameObject.GetComponent<RectTransform>().rect.height;
 
-        Vector3 center = new Vector3(hotbarWidth / 2, hotbarHeight / 2, 0f);
+        Vector3 center = new Vector3(0f,0f, 0f);
         Vector3 offset = new Vector3(80f, 0f, 0f);
 
         float cardAmount = cards.Count;
@@ -74,7 +75,7 @@ public class hotBarController : MonoBehaviour
         for (int i = 0; i < cards.Count; i++)
         {
             GameObject card = cards[i];
-            card.transform.position = center + i * offset - (cardAmount - 1)/2 * offset;
+            card.GetComponent<RectTransform>().localPosition = i * offset - (cardAmount - 1)/2 * offset;
         }
 
 

@@ -167,7 +167,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -300,8 +300,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -200}
-  m_SizeDelta: {x: 992, y: 114}
+  m_AnchoredPosition: {x: 0, y: -150}
+  m_SizeDelta: {x: 500, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8045656457244760660
 CanvasRenderer:
@@ -353,7 +353,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40fc089f154ec47218e3d2f0dba2da52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  card: {fileID: 2109936874675280445, guid: 5e6b0afd242424ebd91055507bcd8e70, type: 3}
+  cardPrefabs:
+  - {fileID: 2109936874675280445, guid: 5e6b0afd242424ebd91055507bcd8e70, type: 3}
+  - {fileID: 5979020289058060222, guid: 6ff35747939674aa69aded24f0e8d4d4, type: 3}
+  player: {fileID: 9219250404387403674}
 --- !u!1 &9219250404387403674
 GameObject:
   m_ObjectHideFlags: 0
@@ -400,7 +403,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerCamera: {fileID: 1470070099757895579}
-  treePrefab: {fileID: 8044006712533202183, guid: 8fb213ce999b74d21a7b25363c0ff665, type: 3}
+  treePrefabs:
+  - {fileID: 8044006712533202183, guid: 8fb213ce999b74d21a7b25363c0ff665, type: 3}
+  - {fileID: 1536914016334746862, guid: 55c5593cbcf52a444be0adf16f73c7f2, type: 3}
   cameraHeight: 10
   cameraDistance: 5
   cameraSpeed: 10

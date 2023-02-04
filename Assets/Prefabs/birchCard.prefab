@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &6974438864570319522
+--- !u!1001 &3421486805772971809
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -23,7 +23,7 @@ PrefabInstance:
     - target: {fileID: 255719964178868594, guid: 568185c68eb244ed89d0a4cdc6fa4783, type: 3}
       propertyPath: m_Texture
       value: 
-      objectReference: {fileID: 2800000, guid: 6954eb30ef759522c817fe5103312354, type: 3}
+      objectReference: {fileID: 2800000, guid: d9313af7bcc80a52a93791cfc6d86e46, type: 3}
     - target: {fileID: 8088933290881106112, guid: 568185c68eb244ed89d0a4cdc6fa4783, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -42,7 +42,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8088933290881106112, guid: 568185c68eb244ed89d0a4cdc6fa4783, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8088933290881106112, guid: 568185c68eb244ed89d0a4cdc6fa4783, type: 3}
       propertyPath: m_AnchorMin.x
@@ -50,7 +50,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8088933290881106112, guid: 568185c68eb244ed89d0a4cdc6fa4783, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8088933290881106112, guid: 568185c68eb244ed89d0a4cdc6fa4783, type: 3}
       propertyPath: m_SizeDelta.x
@@ -110,11 +110,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8670010260005839325, guid: 568185c68eb244ed89d0a4cdc6fa4783, type: 3}
       propertyPath: index
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9043843062888929439, guid: 568185c68eb244ed89d0a4cdc6fa4783, type: 3}
       propertyPath: m_Name
-      value: spruceCard
+      value: birchCard
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

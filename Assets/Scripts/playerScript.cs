@@ -9,7 +9,7 @@ public class playerScript : MonoBehaviour
     [SerializeField]
     private GameObject playerCamera;
     [SerializeField]
-    private GameObject treePrefab;
+    private GameObject[] treePrefabs;
 
     [SerializeField]
     private float cameraHeight = 10f;
@@ -33,6 +33,8 @@ public class playerScript : MonoBehaviour
     private float minCameraAngle = -20f;
     private bool mouseDragging = false;
     private Vector2 dragDir = Vector2.zero;
+
+    private int cardIndex = -1; // -1 is no card fyi
 
     // Start is called before the first frame update
     void Start()
@@ -73,11 +75,12 @@ public class playerScript : MonoBehaviour
             bool isOverUI = UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject();
             if (Physics.Raycast(ray, out hit, 1000f))
             {
-                if (hit.collider.gameObject.tag == "Ground" && !isOverUI)
+                if (hit.collider.gameObject.tag == "Ground" && !isOverUI && cardIndex > -1)
                 {
-                    GameObject tree = Instantiate(treePrefab, hit.point, Quaternion.identity);
+                    GameObject tree = Instantiate(treePrefabs[cardIndex], hit.point, Quaternion.identity);
                     this.gameController.AddTree(tree);
                     tree.GetComponent<treeScript>().controller = gameController;
+                    cardIndex = -1;
                     
                 }
             }
@@ -191,5 +194,10 @@ public class playerScript : MonoBehaviour
 
         var projectile = Instantiate(targetTreeScript.projectile, targetTreeScript.projectileSpawnPoint.position, Quaternion.identity);
         projectile.GetComponent<projectileScript>().gameController = gameController;
+    }
+
+    public void SetCardIndex(int index)
+    {
+        cardIndex = index;
     }
 }

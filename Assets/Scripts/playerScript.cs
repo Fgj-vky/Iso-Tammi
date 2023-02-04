@@ -109,9 +109,14 @@ public class playerScript : MonoBehaviour
             transform.SetPositionAndRotation(lookPosition, lookRotation);
         }
 
-        if(Input.GetKeyDown(KeyCode.Space))
+        if(Input.GetKey(KeyCode.Space))
         {
             Attack();
+        }
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenu");
+            UnityEngine.SceneManagement.SceneManager.UnloadSceneAsync("testing-scene");
         }
 
         // Camera offset

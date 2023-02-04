@@ -158,6 +158,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3944021459416406666, guid: 8fb213ce999b74d21a7b25363c0ff665, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 10.6
+      objectReference: {fileID: 0}
     - target: {fileID: 8044006712533202183, guid: 8fb213ce999b74d21a7b25363c0ff665, type: 3}
       propertyPath: m_Name
       value: Rowan

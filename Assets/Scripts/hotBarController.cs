@@ -13,14 +13,11 @@ public class hotBarController : MonoBehaviour
 
     private List<GameObject> cards = new List<GameObject>();
 
-    private Vector3 canvasScale; 
+    public int CardCount { get { return cards.Count; } }
 
     // Start is called before the first frame update
     void Start()
     {
-        canvasScale = gameObject.transform.parent.GetComponent<RectTransform>().localScale;
-
-
         AddCard(0);
         AddCard(0);
         AddCard(0);

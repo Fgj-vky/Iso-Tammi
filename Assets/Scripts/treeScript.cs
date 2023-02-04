@@ -72,6 +72,7 @@ public class treeScript : MonoBehaviour
 
     public void modifyHealth(int amount)
     {
+
         health += amount;
         if (health < 1)
         {

@@ -10,6 +10,7 @@ public class gameController : MonoBehaviour
     private List<EnemySpawnOption> enemies = new List<EnemySpawnOption>();
 
     private List<GameObject> gameEnemies = new List<GameObject>();
+    private List<enemyScript> enemyScripts = new List<enemyScript>();
 
     [SerializeField]
     private float enemySpeed = 1f;
@@ -57,21 +58,21 @@ public class gameController : MonoBehaviour
         }
     }
 
-    public Transform GetClosestTree(Vector3 pos)
+    public GameObject GetClosestTree(Vector3 pos)
     {
         if(trees.Count == 0)
         {
             return null;
         }
 
-        Transform closest = trees[0].transform;
+        GameObject closest = trees[0];
         float closestDistance = Vector3.Distance(trees[0].transform.position, pos);
 
         for (int i = 1; i < trees.Count; i++)
         {
             if (Vector3.Distance(trees[i].transform.position, pos) < closestDistance)
             {
-                closest = trees[i].transform;
+                closest = trees[i];
                 closestDistance = Vector3.Distance(trees[i].transform.position, pos);
             }
         }
@@ -121,25 +122,14 @@ public class gameController : MonoBehaviour
     private void AddEnemy(GameObject enemy)
     {
         gameEnemies.Add(enemy);
+        enemyScripts.Add(enemy.GetComponent<enemyScript>());
     }
 
     private void MoveEnemies()
     {
-        foreach (var enemy in gameEnemies)
+        foreach (var enemy in enemyScripts)
         {
-            var closest = GetClosestTree(enemy.transform.position);
-            if (closest == null)
-            {
-                return;
-            }
-
-            float closestDistance = Vector3.Distance(enemy.transform.position, closest.position);
-
-
-            if (closestDistance > 0.1f)
-            {
-                enemy.transform.position = Vector3.MoveTowards(enemy.transform.position, closest.position, enemySpeed * 0.001f);
-            }
+            enemy.Move(this);
         }
     }
 

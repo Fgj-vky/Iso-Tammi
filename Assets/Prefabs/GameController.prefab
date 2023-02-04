@@ -44,14 +44,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b8dbf00ce0edb444a9d45de4be04648, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trees:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   enemies:
   - Prefab: {fileID: 1075681311694336121, guid: 2e1153c5cfb8ad8499b2252860d24a70, type: 3}
     Weight: 1
-  enemySpeed: 0.1
+  enemySpeed: 10
   enemyWaveInterval: 200
   enmyWaveStartSize: 5
   enenmyWaveScale: 0.25

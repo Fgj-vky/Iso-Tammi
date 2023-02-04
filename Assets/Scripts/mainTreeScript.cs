@@ -10,7 +10,9 @@ public class mainTreeScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GameObject.FindGameObjectWithTag("GameController").GetComponent<gameController>().AddTree(gameObject);
+        var contorller = GameObject.FindGameObjectWithTag("GameController").GetComponent<gameController>();
+        GetComponent<treeScript>().controller = contorller;
+        contorller.AddTree(gameObject);
     }
 
     // Update is called once per frame

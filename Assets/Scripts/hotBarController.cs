@@ -12,19 +12,17 @@ public class hotBarController : MonoBehaviour
     private GameObject player;
 
     private List<GameObject> cards = new List<GameObject>();
+    private GameObject selectedCard = null;
 
-    private Vector3 canvasScale; 
+    public int CardCount { get { return cards.Count; } }
 
     // Start is called before the first frame update
     void Start()
     {
-        canvasScale = gameObject.transform.parent.GetComponent<RectTransform>().localScale;
-
-
-        AddCard(0);
-        AddCard(0);
-        AddCard(0);
-        AddCard(0);
+        AddCard(1);
+        AddCard(1);
+        AddCard(1);
+        AddCard(1);
 
 
     }
@@ -54,8 +52,18 @@ public class hotBarController : MonoBehaviour
             if (card != null)
             {
                 player.GetComponent<playerScript>().SetCardIndex(card.GetComponent<cardController>().index);
+
+                if (selectedCard != null)
+                {
+                    AddCard(selectedCard.GetComponent<cardController>().index);
+                    ClearSelectedCard();
+                }
+
+                //selectedCard = null;
+                selectedCard = card;
+                selectedCard.GetComponent<RectTransform>().localPosition = new Vector3(300f, 0f, 0f);
+
                 cards.Remove(card);
-                Destroy(card);
                 AlignCards();
             }
         }
@@ -68,7 +76,6 @@ public class hotBarController : MonoBehaviour
         GameObject card = Instantiate(cardPrefabs[index], new Vector3(-100f, -100f, 0f), Quaternion.identity);
         cards.Add(card);
         card.transform.SetParent(transform, false);
-        //card.GetComponent<RectTransform>().localScale = canvasScale;
         AlignCards();
     }
 
@@ -92,6 +99,12 @@ public class hotBarController : MonoBehaviour
         }
 
 
+    }
+
+    public void ClearSelectedCard()
+    {
+        Destroy(selectedCard);
+        selectedCard = null;
     }
 
 }

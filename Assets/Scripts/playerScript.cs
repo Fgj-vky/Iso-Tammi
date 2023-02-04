@@ -40,6 +40,8 @@ public class playerScript : MonoBehaviour
     private int cardIndex = -1; // -1 is no card fyi
 
     [SerializeField]
+    private int maxCardCount = 4;
+    [SerializeField]
     private int cardThreshold;
     private int cardPoints;
     [SerializeField]
@@ -63,7 +65,7 @@ public class playerScript : MonoBehaviour
         if(cardTimer < 0)
         {
             cardTimer = cardTimeout;
-            if(cardPoints >= cardThreshold)
+            if(cardPoints >= cardThreshold && hotBarController.CardCount < maxCardCount)
             {
                 hotBarController.AddRandomCard();
                 cardPoints -= cardThreshold;
@@ -104,7 +106,7 @@ public class playerScript : MonoBehaviour
                     this.gameController.AddTree(tree);
                     tree.GetComponent<treeScript>().controller = gameController;
                     cardIndex = -1;
-                    
+                    hotBarController.GetComponent<hotBarController>().ClearSelectedCard();
                 }
             }
 
@@ -206,23 +208,7 @@ public class playerScript : MonoBehaviour
 
     private void Attack()
     {
-        var closestE = gameController.GetClosestEnemy(cameraTarget.transform.position);
-
-        if(closestE == null)
-        {
-            return;
-        }
-
-        var dist = Vector3.Distance(transform.position, closestE.transform.position);
-        
-        if (!targetTreeScript.CanAttack(dist))
-        {
-            return;
-        }
-
-        var projectile = Instantiate(targetTreeScript.projectile, targetTreeScript.projectileSpawnPoint.position, Quaternion.identity);
-        targetTreeScript.PlayShootSound();
-        projectile.GetComponent<projectileScript>().gameController = gameController;
+        targetTreeScript.Attack();
     }
 
     public void SetCardIndex(int index)

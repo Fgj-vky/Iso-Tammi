@@ -95,6 +95,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1336503526773506345, guid: 8fb213ce999b74d21a7b25363c0ff665, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1336503526773506345, guid: 8fb213ce999b74d21a7b25363c0ff665, type: 3}
       propertyPath: attackRate
       value: 0.01
       objectReference: {fileID: 0}
@@ -150,15 +154,62 @@ PrefabInstance:
       propertyPath: m_Name
       value: Birch
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1336503526773506345, guid: 8fb213ce999b74d21a7b25363c0ff665, type: 3}
     m_RemovedGameObjects:
     - {fileID: 8592845175823573970, guid: 8fb213ce999b74d21a7b25363c0ff665, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 2043028808393797684, guid: 8fb213ce999b74d21a7b25363c0ff665, type: 3}
       insertIndex: 0
       addedObject: {fileID: 2469157561259703124}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8044006712533202183, guid: 8fb213ce999b74d21a7b25363c0ff665, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6613073801645350329}
   m_SourcePrefab: {fileID: 100100000, guid: 8fb213ce999b74d21a7b25363c0ff665, type: 3}
+--- !u!1 &1536914016334746862 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8044006712533202183, guid: 8fb213ce999b74d21a7b25363c0ff665, type: 3}
+  m_PrefabInstance: {fileID: 8860333482746159593}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6613073801645350329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1536914016334746862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1329971df835e5a44a415f73ab3a0ed0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthBar: {fileID: 2118483813950516703}
+  projectile: {fileID: 240927284514792914, guid: 11bc3d9c93bf7084ea86af233c24b5a6, type: 3}
+  projectileSpawnPoint: {fileID: 6943515242790586171}
+  controller: {fileID: 0}
+  attackRate: 0.5
+  idleAttackRate: 0.5
+  attackRange: 25
+  audioSource: {fileID: 7099082985343680652}
+  deathAudioSourcePrefab: {fileID: 7690908770873381608, guid: 2dca6e16c06c54c41990d337fe2ef67c, type: 3}
+  projectileAmount: 5
+  projectileRadius: 1.5
+--- !u!1 &2118483813950516703 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7462578477543902262, guid: 8fb213ce999b74d21a7b25363c0ff665, type: 3}
+  m_PrefabInstance: {fileID: 8860333482746159593}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &6943515242790586171 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1921462578716780242, guid: 8fb213ce999b74d21a7b25363c0ff665, type: 3}
+  m_PrefabInstance: {fileID: 8860333482746159593}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &7099082985343680652 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 1761813482266403173, guid: 8fb213ce999b74d21a7b25363c0ff665, type: 3}
+  m_PrefabInstance: {fileID: 8860333482746159593}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7398413338799378909 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2043028808393797684, guid: 8fb213ce999b74d21a7b25363c0ff665, type: 3}

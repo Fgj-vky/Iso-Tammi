@@ -23,8 +23,6 @@ public class enemyScript : MonoBehaviour
     private GameObject healthBar;
     [SerializeField]
     public int pointValue;
-    [SerializeField]
-    private AudioSource audioSource;
 
     private GameObject? target = null;
     private treeScript? targetTreeScript = null;
@@ -78,7 +76,7 @@ public class enemyScript : MonoBehaviour
             targetTreeScript?.modifyHealth(-damage);
             if (targetTreeScript)
             {
-                //audioSource.Play();
+                // audioSource.Play();
             }
             attackTimer = attackRate;
         }

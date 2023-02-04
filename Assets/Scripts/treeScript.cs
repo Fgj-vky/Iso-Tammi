@@ -9,7 +9,8 @@ public class treeScript : MonoBehaviour
 
     public GameObject healthBar;
 
-    public GameObject projectile;
+    [SerializeField]
+    protected GameObject projectile;
 
     public Transform projectileSpawnPoint;
 
@@ -17,6 +18,8 @@ public class treeScript : MonoBehaviour
 
     [SerializeField]
     private float attackRate;
+    [SerializeField]
+    private float idleAttackRate;
     private float attackTimer = 0;
     [SerializeField]
     private float attackRange;
@@ -28,12 +31,12 @@ public class treeScript : MonoBehaviour
     private GameObject deathAudioSourcePrefab;
 
     private int maxHealth = 100;
-    private int health;
+    private int health = 1000;
 
     private GameObject playerCamera;
 
     // Start is called before the first frame update
-    void Start()
+    protected void Start()
     {
         playerCamera = GameObject.Find("Player").transform.GetChild(0).gameObject;
         health = maxHealth;
@@ -46,10 +49,29 @@ public class treeScript : MonoBehaviour
         attackTimer -= Time.deltaTime;
         // Billboard the health bars towards the camera
         healthBar.transform.parent.transform.LookAt(playerCamera.transform);
+
+        if (attackTimer <= attackRate - idleAttackRate)
+        {
+            Attack();
+        }
     }
 
-    public bool CanAttack(float dist)
+    protected bool CanAttack()
     {
+        if (transform == null)
+        {
+            return false;
+        }
+
+        var closestE = controller.GetClosestEnemy(transform.position);
+
+        if (closestE == null)
+        {
+            return false;
+        }
+
+        var dist = Vector3.Distance(transform.position, closestE.transform.position);
+
         if (dist > attackRange)
         {
             return false;
@@ -64,6 +86,7 @@ public class treeScript : MonoBehaviour
 
     public void modifyHealth(int amount)
     {
+
         health += amount;
         if (health < 1)
         {
@@ -100,5 +123,17 @@ public class treeScript : MonoBehaviour
     public void PlayShootSound()
     {
         audioSource.Play();
+    }
+
+    public virtual void Attack()
+    {
+        if (!CanAttack())
+        {
+            return;
+        }
+
+        var projectile = Instantiate(this.projectile, projectileSpawnPoint.position, Quaternion.identity);
+        PlayShootSound();
+        projectile.GetComponent<projectileScript>().gameController = controller;
     }
 }

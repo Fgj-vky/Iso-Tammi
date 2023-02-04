@@ -59,9 +59,9 @@ public class projectileScript : MonoBehaviour
 
         float distance = Vector3.Distance(enemy.transform.position, transform.position);
 
-        if (distance > 0.1f)
+        if (distance > 1.5f)
         {
-            transform.position = Vector3.MoveTowards(transform.position, enemy.transform.position, Time.deltaTime * speed);
+            transform.position = Vector3.MoveTowards(transform.position, enemy.transform.position + new Vector3(0, 1f, 0), Time.deltaTime * speed);
         }
         else
         {

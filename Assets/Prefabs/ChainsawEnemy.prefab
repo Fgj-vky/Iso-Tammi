@@ -60,6 +60,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 6779421b20e219f5d8e61332c91555cc, type: 3}
+    - target: {fileID: 7128168081017726664, guid: 2e1153c5cfb8ad8499b2252860d24a70, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 01bb4df7a537849d2abcaa98e4cbca50, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

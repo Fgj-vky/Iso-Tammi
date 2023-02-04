@@ -62,6 +62,11 @@ public class playerScript : MonoBehaviour
             transform.SetPositionAndRotation(lookPosition, lookRotation);
         }
 
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+
+        }
+
         // Camera offset
         playerCamera.transform.localPosition = new Vector3(0f, cameraDistance + cameraHeight, -cameraDistance);
     }
@@ -113,5 +118,10 @@ public class playerScript : MonoBehaviour
         {
             focusPoint = Vector3.Lerp(currentPoint, targetPoint, cameraSpeed);
         }
+    }
+
+    private void Attack()
+    {
+
     }
 }

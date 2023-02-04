@@ -9,7 +9,7 @@ public class gameController : MonoBehaviour
     [SerializeField]
     private List<EnemySpawnOption> enemies = new List<EnemySpawnOption>();
 
-    private List<Transform> gameEnemies = new List<Transform>();
+    private List<GameObject> gameEnemies = new List<GameObject>();
 
     [SerializeField]
     private float enemySpeed = 1f;
@@ -35,7 +35,7 @@ public class gameController : MonoBehaviour
     void Start()
     {
         enemyWaveSize = enmyWaveStartSize;
-        enemyWaveTimer = enemyWaveInterval;
+        enemyWaveTimer = 0;
 
         foreach (var enemy in enemies)
         {
@@ -55,6 +55,40 @@ public class gameController : MonoBehaviour
             enemyWaveSize += enenmyWaveScale;
             enemyWaveTimer = enemyWaveInterval;
         }
+    }
+
+    public Transform GetClosestTree(Vector3 pos)
+    {
+        Transform closest = trees[0];
+        float closestDistance = Vector3.Distance(trees[0].position, pos);
+
+        for (int i = 1; i < trees.Count; i++)
+        {
+            if (Vector3.Distance(trees[i].position, pos) < closestDistance)
+            {
+                closest = trees[i];
+                closestDistance = Vector3.Distance(trees[i].position, pos);
+            }
+        }
+
+        return closest;
+    }
+
+    public GameObject GetClosestEnemy(Vector3 pos)
+    {
+        GameObject closest = gameEnemies[0];
+        float closestDistance = Vector3.Distance(gameEnemies[0].transform.position, pos);
+
+        for (int i = 1; i < gameEnemies.Count; i++)
+        {
+            if (Vector3.Distance(gameEnemies[i].transform.position, pos) < closestDistance)
+            {
+                closest = gameEnemies[i];
+                closestDistance = Vector3.Distance(gameEnemies[i].transform.position, pos);
+            }
+        }
+
+        return closest;
     }
 
     private void CreateWave(Vector3 position)
@@ -81,28 +115,20 @@ public class gameController : MonoBehaviour
 
     private void AddEnemy(GameObject enemy)
     {
-        gameEnemies.Add(enemy.transform);
+        gameEnemies.Add(enemy);
     }
 
     private void MoveEnemies()
     {
         foreach (var enemy in gameEnemies)
         {
-            Transform closest = trees[0];
-            float closestDistance = Vector3.Distance(trees[0].position, enemy.position);
+            var closest = GetClosestTree(enemy.transform.position);
+            float closestDistance = Vector3.Distance(enemy.transform.position, closest.position);
 
-            for (int i = 1; i < trees.Count; i++)
-            {
-                if(Vector3.Distance(trees[i].position, enemy.position) < closestDistance)
-                {
-                    closest = trees[i];
-                    closestDistance = Vector3.Distance(trees[i].position, enemy.position);
-                }
-            }
 
             if (closestDistance > 0.1f)
             {
-                enemy.position = Vector3.Lerp(enemy.position, closest.position, enemySpeed * 0.0001f);
+                enemy.transform.position = Vector3.MoveTowards(enemy.transform.position, closest.position, enemySpeed * 0.001f);
             }
         }
     }

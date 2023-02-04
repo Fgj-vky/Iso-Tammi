@@ -5,13 +5,10 @@ using UnityEngine;
 public class projectileScript : MonoBehaviour
 {
 
-    [SerializeField]
-    private Sprite projectileSprite;
+    public gameController? gameController = null;
 
     [SerializeField]
-    private GameObject target;
-    private Transform targetTransform;
-    private enemyScript targetController;
+    private Sprite projectileSprite;
 
     [SerializeField]
     private float speed;
@@ -25,9 +22,6 @@ public class projectileScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        targetTransform = target.transform;
-        targetController = target.GetComponent<enemyScript>();
-
         spriteRenderers = gameObject.GetComponentsInChildren<SpriteRenderer>();
         foreach (var renderer in spriteRenderers)
         {
@@ -38,6 +32,8 @@ public class projectileScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (gameController == null) return;
+
         if(delete)
         {
             deleteTimer -= Time.deltaTime;
@@ -48,19 +44,19 @@ public class projectileScript : MonoBehaviour
             }
         }
 
-        transform.LookAt(targetTransform);
+        var enemy = gameController.GetClosestEnemy(transform.position);
 
-        float distance = Vector3.Distance(targetTransform.position, transform.position);
+        transform.LookAt(enemy.transform);
 
-        Vector3 unitVector = (targetTransform.position - transform.position) / Vector3.Distance(transform.position, targetTransform.position);
+        float distance = Vector3.Distance(enemy.transform.position, transform.position);
 
         if (distance > 0.1f)
         {
-            transform.position = Vector3.MoveTowards(transform.position, targetTransform.position, speed * 0.01f);
+            transform.position = Vector3.MoveTowards(transform.position, enemy.transform.position, speed * 0.01f);
         }
         else
         {
-            targetController.GetHit();
+            enemy.GetComponent<enemyScript>().GetHit();
             foreach (var renderer in spriteRenderers)
             {
                 renderer.enabled = false;

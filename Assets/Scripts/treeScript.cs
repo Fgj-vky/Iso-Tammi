@@ -9,6 +9,9 @@ public class treeScript : MonoBehaviour
 
     public GameObject healthBar;
 
+    public GameObject projectile;
+
+    public Transform projectileSpawnPoint;
 
     private int maxHealth = 100;
     private int health;

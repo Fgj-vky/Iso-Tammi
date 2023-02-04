@@ -15,6 +15,12 @@ public class treeScript : MonoBehaviour
 
     public gameController controller;
 
+    [SerializeField]
+    private float attackRate;
+    private float attackTimer = 0;
+    [SerializeField]
+    private float attackRange;
+
     private int maxHealth = 100;
     private int health;
 
@@ -31,8 +37,23 @@ public class treeScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        attackTimer -= Time.deltaTime;
         // Billboard the health bars towards the camera
         healthBar.transform.parent.transform.LookAt(playerCamera.transform);
+    }
+
+    public bool CanAttack(float dist)
+    {
+        if (dist > attackRange)
+        {
+            return false;
+        }
+        else if (attackTimer < 0)
+        {
+            attackTimer = attackRate;
+            return true;
+        }
+        return false;
     }
 
     public void modifyHealth(int amount)

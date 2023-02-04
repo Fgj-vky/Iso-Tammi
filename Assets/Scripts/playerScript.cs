@@ -175,6 +175,20 @@ public class playerScript : MonoBehaviour
 
     private void Attack()
     {
+        var closestE = gameController.GetClosestEnemy(cameraTarget.transform.position);
+
+        if(closestE == null)
+        {
+            return;
+        }
+
+        var dist = Vector3.Distance(transform.position, closestE.transform.position);
+        
+        if (!targetTreeScript.CanAttack(dist))
+        {
+            return;
+        }
+
         var projectile = Instantiate(targetTreeScript.projectile, targetTreeScript.projectileSpawnPoint.position, Quaternion.identity);
         projectile.GetComponent<projectileScript>().gameController = gameController;
     }

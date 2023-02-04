@@ -20,6 +20,11 @@ public class enemyScript : MonoBehaviour
     private int health;
     [SerializeField]
     private GameObject healthBar;
+    [SerializeField]
+    private GameObject deathSoundPlayerPrefab;
+    [SerializeField]
+    private AudioSource audioSource;
+
 
     private GameObject? target = null;
     private treeScript? targetTreeScript = null;
@@ -31,6 +36,7 @@ public class enemyScript : MonoBehaviour
     {
         playerTransform = GameObject.Find("Camera").transform;
         health = maxHealth;
+        updateHealthBar();
     }
 
     // Update is called once per frame
@@ -69,6 +75,10 @@ public class enemyScript : MonoBehaviour
         else if(attackTimer < 0)
         {
             targetTreeScript?.modifyHealth(-damage);
+            if (targetTreeScript)
+            {
+                audioSource.Play();
+            }
             attackTimer = attackRate;
         }
 
@@ -81,6 +91,7 @@ public class enemyScript : MonoBehaviour
         if (health < 1)
         {
             controller.RemoveEnemy(gameObject, this);
+            Instantiate(deathSoundPlayerPrefab, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
         else if (health > maxHealth)

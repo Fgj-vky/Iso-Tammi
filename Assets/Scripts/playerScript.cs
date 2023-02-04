@@ -200,6 +200,7 @@ public class playerScript : MonoBehaviour
         }
 
         var projectile = Instantiate(targetTreeScript.projectile, targetTreeScript.projectileSpawnPoint.position, Quaternion.identity);
+        targetTreeScript.PlayShootSound();
         projectile.GetComponent<projectileScript>().gameController = gameController;
     }
 

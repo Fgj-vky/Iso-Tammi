@@ -21,6 +21,12 @@ public class treeScript : MonoBehaviour
     [SerializeField]
     private float attackRange;
 
+    [SerializeField]
+    private AudioSource audioSource;
+
+    [SerializeField]
+    private GameObject deathAudioSourcePrefab;
+
     private int maxHealth = 100;
     private int health;
 
@@ -62,6 +68,7 @@ public class treeScript : MonoBehaviour
         if (health < 1)
         {
             controller?.RemoveTree(gameObject);
+            Instantiate(deathAudioSourcePrefab, transform.position, Quaternion.identity);
             Destroy(gameObject);
         } else if (health > maxHealth)
         {
@@ -88,5 +95,10 @@ public class treeScript : MonoBehaviour
 
         healthBar.GetComponent<RectTransform>().offsetMin = new Vector2(Mathf.Lerp(maxValue, minValue, scalar), 2.31f);
 
+    }
+
+    public void PlayShootSound()
+    {
+        audioSource.Play();
     }
 }

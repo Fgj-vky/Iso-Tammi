@@ -124,7 +124,6 @@ public class gameController : MonoBehaviour
         gameEnemies.Add(enemy);
         enemyScripts.Add(enemy.GetComponent<enemyScript>());
     }
-
     private void MoveEnemies()
     {
         foreach (var enemy in enemyScripts)
@@ -137,6 +136,12 @@ public class gameController : MonoBehaviour
     {
         trees.Add(tree);
     }
+
+    public void RemoveTree(GameObject tree)
+    {
+        trees.Remove(tree);
+    }
+
 
 
     [System.Serializable]

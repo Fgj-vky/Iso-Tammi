@@ -135,6 +135,7 @@ MonoBehaviour:
   gameController: {fileID: 0}
   projectileSprite: {fileID: 21300000, guid: a43512453d4754c43982247cb02d9b23, type: 3}
   speed: 100
+  damage: 5
 --- !u!198 &4410060596190667574
 ParticleSystem:
   m_ObjectHideFlags: 0

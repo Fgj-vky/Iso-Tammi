@@ -82,6 +82,11 @@ public class gameController : MonoBehaviour
 
     public GameObject GetClosestEnemy(Vector3 pos)
     {
+        if(gameEnemies.Count == 0)
+        {
+            return null;
+        }
+
         GameObject closest = gameEnemies[0];
         float closestDistance = Vector3.Distance(gameEnemies[0].transform.position, pos);
 
@@ -142,6 +147,11 @@ public class gameController : MonoBehaviour
         trees.Remove(tree);
     }
 
+    public void RemoveEnemy(GameObject enemy, enemyScript script)
+    {
+        gameEnemies.Remove(enemy);
+        enemyScripts.Remove(script);
+    }
 
 
     [System.Serializable]

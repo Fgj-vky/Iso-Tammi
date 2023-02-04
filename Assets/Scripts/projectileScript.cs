@@ -13,6 +13,9 @@ public class projectileScript : MonoBehaviour
     [SerializeField]
     private float speed;
 
+    [SerializeField]
+    private int damage;
+
     private SpriteRenderer[] spriteRenderers;
 
 
@@ -40,11 +43,17 @@ public class projectileScript : MonoBehaviour
             if(deleteTimer < 0)
             {
                 Destroy(gameObject);
-                return;
             }
+            return;
         }
 
         var enemy = gameController.GetClosestEnemy(transform.position);
+
+        if(enemy == null)
+        {
+            Destroy(gameObject);
+            return;
+        }
 
         transform.LookAt(enemy.transform);
 
@@ -56,7 +65,7 @@ public class projectileScript : MonoBehaviour
         }
         else
         {
-            enemy.GetComponent<enemyScript>().GetHit();
+            enemy.GetComponent<enemyScript>().GetHit(damage);
             foreach (var renderer in spriteRenderers)
             {
                 renderer.enabled = false;

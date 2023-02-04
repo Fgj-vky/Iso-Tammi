@@ -70,9 +70,10 @@ public class playerScript : MonoBehaviour
         {
             RaycastHit hit;
             Ray ray = playerCamera.GetComponent<Camera>().ScreenPointToRay(Input.mousePosition);
+            bool isOverUI = UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject();
             if (Physics.Raycast(ray, out hit, 1000f))
             {
-                if (hit.collider.gameObject.tag == "Ground")
+                if (hit.collider.gameObject.tag == "Ground" && !isOverUI)
                 {
                     GameObject tree = Instantiate(treePrefab, hit.point, Quaternion.identity);
                     this.gameController.AddTree(tree);

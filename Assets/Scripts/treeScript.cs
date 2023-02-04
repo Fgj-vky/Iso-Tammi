@@ -31,7 +31,7 @@ public class treeScript : MonoBehaviour
     private GameObject deathAudioSourcePrefab;
 
     private int maxHealth = 100;
-    private int health;
+    private int health = 1000;
 
     private GameObject playerCamera;
 

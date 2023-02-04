@@ -20,18 +20,14 @@ public class treeScript : MonoBehaviour
     {
         playerCamera = GameObject.Find("Player").transform.GetChild(0).gameObject;
         health = maxHealth;
+        updateHealthBar();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetAxis("Horizontal") > 0)
-        {
-            modifyHealth(-1);
-        }
-
+        // Billboard the health bars towards the camera
         healthBar.transform.parent.transform.LookAt(playerCamera.transform);
-
     }
 
     public void modifyHealth(int amount)
@@ -52,6 +48,16 @@ public class treeScript : MonoBehaviour
         float scalar = health / (maxHealth * 1.0f);
         float maxValue = 6.55f;
         float minValue = 3.453f;
+
+
+        if (health == maxHealth)
+        {
+            healthBar.transform.parent.gameObject.active = false;
+        } else
+        {
+            healthBar.transform.parent.gameObject.active = true;
+        }
+
 
         healthBar.GetComponent<RectTransform>().offsetMin = new Vector2(Mathf.Lerp(maxValue, minValue, scalar), 2.31f);
 

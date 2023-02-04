@@ -52,7 +52,21 @@ public class playerScript : MonoBehaviour
         }
 
 
-  
+        if (Input.GetMouseButtonDown(0))
+        {
+            RaycastHit hit;
+            Ray ray = playerCamera.GetComponent<Camera>().ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(ray, out hit, 1000f))
+            {
+                if (hit.collider.gameObject.tag == "Ground")
+                {
+                    Debug.Log("CLicked ground");
+                }
+                //Debug.Log(hit.point);
+            }
+
+
+        }
 
         // Move and rotate the camera
         UpdateFocusPoint();

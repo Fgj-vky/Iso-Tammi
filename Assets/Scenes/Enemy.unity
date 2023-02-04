@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657838, g: 0.49641234, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -152,7 +152,7 @@ PrefabInstance:
     - target: {fileID: 7317180933455564111, guid: 95cdf226947f64940b9fdd3ceab9b030, type: 3}
       propertyPath: target
       value: 
-      objectReference: {fileID: 1554344673}
+      objectReference: {fileID: 1486480903}
     - target: {fileID: 8167245886174283495, guid: 95cdf226947f64940b9fdd3ceab9b030, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -576,9 +576,9 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8fb213ce999b74d21a7b25363c0ff665, type: 3}
---- !u!4 &1554344673 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 927820449381822697, guid: 2e1153c5cfb8ad8499b2252860d24a70, type: 3}
+--- !u!1 &1486480903 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1075681311694336121, guid: 2e1153c5cfb8ad8499b2252860d24a70, type: 3}
   m_PrefabInstance: {fileID: 603415680}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1807446288
@@ -711,8 +711,8 @@ GameObject:
   - component: {fileID: 2023131737}
   - component: {fileID: 2023131736}
   m_Layer: 0
-  m_Name: Cube
-  m_TagString: Untagged
+  m_Name: Ground
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -22,6 +22,5 @@ public class testScript : MonoBehaviour
     {
 
         player.GetComponent<playerScript>().cameraTarget = transform.parent.gameObject;
-        Debug.Log(player.GetComponent<playerScript>().cameraTarget);
     }
 }

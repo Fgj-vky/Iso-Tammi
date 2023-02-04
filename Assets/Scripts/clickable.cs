@@ -20,8 +20,6 @@ public class testScript : MonoBehaviour
 
     void OnMouseDown()
     {
-
-        player.GetComponent<playerScript>().cameraTarget = transform.parent.gameObject;
-        Debug.Log(player.GetComponent<playerScript>().cameraTarget);
+        player.GetComponent<playerScript>().ChangeTarget(transform.parent.gameObject);
     }
 }

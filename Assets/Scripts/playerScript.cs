@@ -5,13 +5,21 @@ using UnityEngine;
 public class playerScript : MonoBehaviour
 {
 
-    public GameObject? cameraTarget;
-    public GameObject playerCamera;
+    private GameObject? cameraTarget;
+    [SerializeField]
+    private GameObject playerCamera;
 
-    public float cameraHeight = 10f;
-    public float cameraDistance = 5f;
-    public float cameraSpeed = 0.1f;
-    public float mouseSpeed = 0.2f;
+    [SerializeField]
+    private float cameraHeight = 10f;
+    [SerializeField]
+    private float cameraDistance = 5f;
+    [SerializeField]
+    private float cameraSpeed = 0.1f;
+    [SerializeField]
+    private float mouseSpeed = 0.2f;
+
+    private treeScript targetTreeScript;
+    private gameController gameController;
 
     private Vector3 focusPoint;
     private Vector2 orbitAngles = new Vector2(0f, 0f);
@@ -23,7 +31,7 @@ public class playerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<gameController>();
     }
 
     // Update is called once per frame
@@ -67,11 +75,17 @@ public class playerScript : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.Space))
         {
-
+            Attack();
         }
 
         // Camera offset
         playerCamera.transform.localPosition = new Vector3(0f, cameraDistance + cameraHeight, -cameraDistance);
+    }
+
+    public void ChangeTarget(GameObject newTarget)
+    {
+        cameraTarget = newTarget;
+        targetTreeScript = newTarget.GetComponent<treeScript>();
     }
 
     // Tween the camera movement 
@@ -104,7 +118,7 @@ public class playerScript : MonoBehaviour
                         closestTree = trees[i];
                     }
                 }
-                cameraTarget = closestTree;
+                ChangeTarget(closestTree);
 
 
             } else
@@ -125,6 +139,7 @@ public class playerScript : MonoBehaviour
 
     private void Attack()
     {
-
+        var projectile = Instantiate(targetTreeScript.projectile, targetTreeScript.projectileSpawnPoint.position, Quaternion.identity);
+        projectile.GetComponent<projectileScript>().gameController = gameController;
     }
 }

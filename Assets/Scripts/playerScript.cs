@@ -29,7 +29,9 @@ public class playerScript : MonoBehaviour
 
     private Vector3 focusPoint;
     private Vector2 orbitAngles = new Vector2(0f, 0f);
+    [SerializeField]
     private float maxCameraAngle = 10f;
+    [SerializeField]
     private float minCameraAngle = -20f;
     private bool mouseDragging = false;
     private Vector2 dragDir = Vector2.zero;

@@ -23,7 +23,7 @@ PrefabInstance:
     - target: {fileID: 255719964178868594, guid: 568185c68eb244ed89d0a4cdc6fa4783, type: 3}
       propertyPath: m_Texture
       value: 
-      objectReference: {fileID: 2800000, guid: cd0a89e601067d44b9fca0728ffe9127, type: 3}
+      objectReference: {fileID: 2800000, guid: d4f5b0756380a47cb9dbb19b675db2c1, type: 3}
     - target: {fileID: 8088933290881106112, guid: 568185c68eb244ed89d0a4cdc6fa4783, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

@@ -345,6 +345,8 @@ MonoBehaviour:
   projectile: {fileID: 3545246621676058693, guid: 95cdf226947f64940b9fdd3ceab9b030, type: 3}
   projectileSpawnPoint: {fileID: 1921462578716780242}
   controller: {fileID: 0}
+  attackRate: 0.25
+  attackRange: 25
 --- !u!1001 &6794271536501477892
 PrefabInstance:
   m_ObjectHideFlags: 0

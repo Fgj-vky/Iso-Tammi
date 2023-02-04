@@ -1,0 +1,135 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &2182749555931199948
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 870987507566604920, guid: 95cdf226947f64940b9fdd3ceab9b030, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 6579fcf8aed464643b00bce1eb5ddcb9, type: 3}
+    - target: {fileID: 3240351748992811075, guid: 95cdf226947f64940b9fdd3ceab9b030, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 3240351748992811075, guid: 95cdf226947f64940b9fdd3ceab9b030, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 3296240788646843977, guid: 95cdf226947f64940b9fdd3ceab9b030, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 3296240788646843977, guid: 95cdf226947f64940b9fdd3ceab9b030, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 3545246621676058693, guid: 95cdf226947f64940b9fdd3ceab9b030, type: 3}
+      propertyPath: m_Name
+      value: OakProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 4410060596190667574, guid: 95cdf226947f64940b9fdd3ceab9b030, type: 3}
+      propertyPath: ShapeModule.m_Scale.x
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4410060596190667574, guid: 95cdf226947f64940b9fdd3ceab9b030, type: 3}
+      propertyPath: ShapeModule.m_Position.z
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4410060596190667574, guid: 95cdf226947f64940b9fdd3ceab9b030, type: 3}
+      propertyPath: ShapeModule.radius.value
+      value: 3.43
+      objectReference: {fileID: 0}
+    - target: {fileID: 4410060596190667574, guid: 95cdf226947f64940b9fdd3ceab9b030, type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4410060596190667574, guid: 95cdf226947f64940b9fdd3ceab9b030, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4410060596190667574, guid: 95cdf226947f64940b9fdd3ceab9b030, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 0.10675935
+      objectReference: {fileID: 0}
+    - target: {fileID: 4410060596190667574, guid: 95cdf226947f64940b9fdd3ceab9b030, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 0.3490566
+      objectReference: {fileID: 0}
+    - target: {fileID: 4410060596190667574, guid: 95cdf226947f64940b9fdd3ceab9b030, type: 3}
+      propertyPath: EmissionModule.rateOverDistance.scalar
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 6177637931813473295, guid: 95cdf226947f64940b9fdd3ceab9b030, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 6579fcf8aed464643b00bce1eb5ddcb9, type: 3}
+    - target: {fileID: 6996606347755717010, guid: 95cdf226947f64940b9fdd3ceab9b030, type: 3}
+      propertyPath: m_MaxParticleSize
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7317180933455564111, guid: 95cdf226947f64940b9fdd3ceab9b030, type: 3}
+      propertyPath: speed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7317180933455564111, guid: 95cdf226947f64940b9fdd3ceab9b030, type: 3}
+      propertyPath: damage
+      value: 75
+      objectReference: {fileID: 0}
+    - target: {fileID: 7317180933455564111, guid: 95cdf226947f64940b9fdd3ceab9b030, type: 3}
+      propertyPath: projectileSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 6579fcf8aed464643b00bce1eb5ddcb9, type: 3}
+    - target: {fileID: 8167245886174283495, guid: 95cdf226947f64940b9fdd3ceab9b030, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8167245886174283495, guid: 95cdf226947f64940b9fdd3ceab9b030, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8167245886174283495, guid: 95cdf226947f64940b9fdd3ceab9b030, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8167245886174283495, guid: 95cdf226947f64940b9fdd3ceab9b030, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8167245886174283495, guid: 95cdf226947f64940b9fdd3ceab9b030, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8167245886174283495, guid: 95cdf226947f64940b9fdd3ceab9b030, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8167245886174283495, guid: 95cdf226947f64940b9fdd3ceab9b030, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8167245886174283495, guid: 95cdf226947f64940b9fdd3ceab9b030, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8167245886174283495, guid: 95cdf226947f64940b9fdd3ceab9b030, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8167245886174283495, guid: 95cdf226947f64940b9fdd3ceab9b030, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8167245886174283495, guid: 95cdf226947f64940b9fdd3ceab9b030, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 95cdf226947f64940b9fdd3ceab9b030, type: 3}

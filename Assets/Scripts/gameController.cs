@@ -30,13 +30,17 @@ public class gameController : MonoBehaviour
     private float maxWeight = 0f;
     private float waveDegrees = 0f;
 
+    [SerializeField]
+    [Range(0f, 10f)]
+    private float enemyWaveDist;
+
     public Transform wavePosition;
 
     // Start is called before the first frame update
     void Start()
     {
         enemyWaveSize = enmyWaveStartSize;
-        enemyWaveTimer = 0;
+        enemyWaveTimer = enemyWaveInterval;
 
         foreach (var enemy in enemies)
         {
@@ -166,7 +170,7 @@ public class gameController : MonoBehaviour
         }
         Vector3 pointB = closestTree.transform.position;
 
-        Vector3 pointC = Vector3.Lerp(pointA, pointB, 0.5f);
+        Vector3 pointC = Vector3.Lerp(pointA, pointB, enemyWaveDist * 0.1f);
 
         return pointC;
     }

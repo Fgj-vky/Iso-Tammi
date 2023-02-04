@@ -52,7 +52,7 @@ public class gameController : MonoBehaviour
         enemyWaveTimer -= Time.deltaTime;
         if(enemyWaveTimer <= 0)
         {
-            CreateWave(wavePosition.position);
+            CreateWave(GenerateWavePosition());
             enemyWaveSize += enenmyWaveScale;
             enemyWaveTimer = enemyWaveInterval;
         }
@@ -153,6 +153,23 @@ public class gameController : MonoBehaviour
         enemyScripts.Remove(script);
     }
 
+    private Vector3 GenerateWavePosition()
+    {
+        float angle = Random.Range(0, 2 * Mathf.PI);
+        float r = 150f;
+
+        Vector3 pointA = new Vector3(Mathf.Sin(angle) * r, 0f, Mathf.Cos(angle) * r);
+        GameObject closestTree = GetClosestTree(pointA);
+        if (closestTree == null)
+        {
+            return pointA;
+        }
+        Vector3 pointB = closestTree.transform.position;
+
+        Vector3 pointC = Vector3.Lerp(pointA, pointB, 0.5f);
+
+        return pointC;
+    }
 
     [System.Serializable]
     private struct EnemySpawnOption

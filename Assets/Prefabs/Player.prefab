@@ -405,7 +405,7 @@ GameObject:
   - component: {fileID: 4167253626165393470}
   m_Layer: 5
   m_Name: HotBar
-  m_TagString: Untagged
+  m_TagString: HotBarController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -543,3 +543,5 @@ MonoBehaviour:
   maxCameraDistance: 20
   maxCameraAngle: 10
   minCameraAngle: -20
+  cardThreshold: 0
+  cardTimeout: 0.5

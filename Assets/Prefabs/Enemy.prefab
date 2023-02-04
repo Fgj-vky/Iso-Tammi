@@ -214,8 +214,7 @@ MonoBehaviour:
   attackRate: 1
   maxHealth: 100
   healthBar: {fileID: 6937195463429535061}
-  deathSoundPlayerPrefab: {fileID: 545248774131734688, guid: 8c0a2011a798542c5b1ad2c786c8629b, type: 3}
-  audioSource: {fileID: 7128168081017726664}
+  pointValue: 1
 --- !u!135 &4180108622703670767
 SphereCollider:
   m_ObjectHideFlags: 0

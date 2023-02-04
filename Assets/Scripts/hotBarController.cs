@@ -21,8 +21,8 @@ public class hotBarController : MonoBehaviour
         canvasScale = gameObject.transform.parent.GetComponent<RectTransform>().localScale;
 
 
-        AddCard(1);
-        AddCard(1);
+        AddCard(0);
+        AddCard(0);
         AddCard(0);
         AddCard(0);
 
@@ -70,6 +70,11 @@ public class hotBarController : MonoBehaviour
         card.transform.SetParent(transform, false);
         //card.GetComponent<RectTransform>().localScale = canvasScale;
         AlignCards();
+    }
+
+    public void AddRandomCard()
+    {
+        AddCard(Random.Range(0, cards.Count));
     }
 
     private void AlignCards()

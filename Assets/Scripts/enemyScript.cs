@@ -5,6 +5,7 @@ using UnityEngine;
 public class enemyScript : MonoBehaviour
 {
     private Transform playerTransform;
+    private playerScript playerScript;
 
     [SerializeField]
     private float speed;
@@ -21,10 +22,7 @@ public class enemyScript : MonoBehaviour
     [SerializeField]
     private GameObject healthBar;
     [SerializeField]
-    private GameObject deathSoundPlayerPrefab;
-    [SerializeField]
-    private AudioSource audioSource;
-
+    public int pointValue;
 
     private GameObject? target = null;
     private treeScript? targetTreeScript = null;
@@ -35,6 +33,7 @@ public class enemyScript : MonoBehaviour
     void Start()
     {
         playerTransform = GameObject.Find("Camera").transform;
+        playerScript = GameObject.Find("Player").GetComponent<playerScript>();
         health = maxHealth;
         updateHealthBar();
     }
@@ -91,7 +90,7 @@ public class enemyScript : MonoBehaviour
         if (health < 1)
         {
             controller.RemoveEnemy(gameObject, this);
-            Instantiate(deathSoundPlayerPrefab, transform.position, Quaternion.identity);
+            this.playerScript.AddPoints(pointValue);
             Destroy(gameObject);
         }
         else if (health > maxHealth)

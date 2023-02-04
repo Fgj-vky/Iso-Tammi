@@ -35,6 +35,7 @@ public class enemyScript : MonoBehaviour
         playerTransform = GameObject.Find("Camera").transform;
         playerScript = GameObject.Find("Player").GetComponent<playerScript>();
         health = maxHealth;
+        updateHealthBar();
     }
 
     // Update is called once per frame
@@ -73,6 +74,10 @@ public class enemyScript : MonoBehaviour
         else if(attackTimer < 0)
         {
             targetTreeScript?.modifyHealth(-damage);
+            if (targetTreeScript)
+            {
+                audioSource.Play();
+            }
             attackTimer = attackRate;
         }
 

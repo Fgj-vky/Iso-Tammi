@@ -429,7 +429,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6277057638970412692, guid: ac7982d35aac78043a782ae40859f663, type: 3}
       propertyPath: scaleFactor
-      value: 0.005
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7195250449301364493, guid: ac7982d35aac78043a782ae40859f663, type: 3}
       propertyPath: m_RootOrder

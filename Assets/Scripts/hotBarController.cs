@@ -20,9 +20,9 @@ public class hotBarController : MonoBehaviour
     void Start()
     {
         AddCard(1);
-        AddCard(1);
-        AddCard(1);
-        AddCard(1);
+        AddCard(2);
+        AddCard(3);
+        AddCard(0);
 
 
     }

@@ -13,6 +13,8 @@ public class treeScript : MonoBehaviour
 
     public Transform projectileSpawnPoint;
 
+    public gameController controller;
+
     private int maxHealth = 100;
     private int health;
 
@@ -38,6 +40,7 @@ public class treeScript : MonoBehaviour
         health += amount;
         if (health < 1)
         {
+            controller?.RemoveTree(gameObject);
             Destroy(gameObject);
         } else if (health > maxHealth)
         {

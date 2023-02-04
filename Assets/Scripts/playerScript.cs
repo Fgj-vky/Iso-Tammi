@@ -77,6 +77,7 @@ public class playerScript : MonoBehaviour
                 {
                     GameObject tree = Instantiate(treePrefab, hit.point, Quaternion.identity);
                     this.gameController.AddTree(tree);
+                    tree.GetComponent<treeScript>().controller = gameController;
                     
                 }
             }

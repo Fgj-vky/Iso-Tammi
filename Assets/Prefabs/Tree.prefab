@@ -552,6 +552,7 @@ MonoBehaviour:
   projectileSpawnPoint: {fileID: 1921462578716780242}
   controller: {fileID: 0}
   attackRate: 0.25
+  idleAttackRate: 0.3
   attackRange: 25
   audioSource: {fileID: 1761813482266403173}
   deathAudioSourcePrefab: {fileID: 7690908770873381608, guid: 2dca6e16c06c54c41990d337fe2ef67c, type: 3}

@@ -139,6 +139,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cameraTarget: {fileID: 0}
   playerCamera: {fileID: 1470070099757895579}
+  cameraHeight: 10
   cameraDistance: 5
   cameraSpeed: 0.1
   mouseSpeed: 0.2

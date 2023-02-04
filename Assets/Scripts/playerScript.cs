@@ -42,7 +42,7 @@ public class playerScript : MonoBehaviour
             dragDir = dragDir - mousePos;
 
             float vAngle = Mathf.Max(Mathf.Min(orbitAngles.x + dragDir.y * mouseSpeed, maxCameraAngle), minCameraAngle);
-            orbitAngles = new Vector2(vAngle, orbitAngles.y + dragDir.x * mouseSpeed);
+            orbitAngles = new Vector2(vAngle, orbitAngles.y - dragDir.x * mouseSpeed);
             dragDir = mousePos;
         }
         else
@@ -51,12 +51,11 @@ public class playerScript : MonoBehaviour
             dragDir = Vector2.zero;
         }
 
-
         // Move and rotate the camera
+        UpdateFocusPoint();
         if (cameraTarget != null)
         {
 
-            UpdateFocusPoint();
             Quaternion lookRotation = Quaternion.Euler(orbitAngles);
             Vector3 lookDirection = transform.forward;
             Vector3 lookPosition = focusPoint - lookDirection * cameraDistance;
@@ -70,8 +69,43 @@ public class playerScript : MonoBehaviour
     // Tween the camera movement 
     private void UpdateFocusPoint()
     {
-        Vector3 targetPoint = cameraTarget.transform.position;
+
         Vector3 currentPoint = transform.position + transform.forward * cameraDistance;
+
+        if (cameraTarget == null)
+        {
+            GameObject[] trees = GameObject.FindGameObjectsWithTag("Tree");
+            if (trees.Length > 0)
+            {
+
+                float closestDistance = -1;
+                GameObject closestTree = null;
+
+                for (int i = 0; i < trees.Length; i++) {
+                    if (closestDistance < 0)
+                    {
+                        closestDistance = Vector3.Distance(trees[i].transform.position, currentPoint);
+                        closestTree = trees[i];
+                    }
+
+                    float d = Vector3.Distance(trees[i].transform.position, currentPoint);
+
+                    if(d < closestDistance)
+                    {
+                        closestDistance = d;
+                        closestTree = trees[i];
+                    }
+                }
+                cameraTarget = closestTree;
+
+
+            } else
+            {
+                cameraTarget = null;
+                return;
+            }
+        }
+        Vector3 targetPoint = cameraTarget.transform.position;
 
         float distance = Vector3.Distance(targetPoint, currentPoint);
 

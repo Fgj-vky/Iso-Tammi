@@ -137,9 +137,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a091a9ebee9d4e8fb8a7b7ab9d466bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraTarget: {fileID: 0}
   playerCamera: {fileID: 1470070099757895579}
+  treePrefab: {fileID: 8044006712533202183, guid: 8fb213ce999b74d21a7b25363c0ff665, type: 3}
   cameraHeight: 10
   cameraDistance: 5
-  cameraSpeed: 0.1
+  cameraSpeed: 10
   mouseSpeed: 0.2

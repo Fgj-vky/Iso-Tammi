@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class gameController : MonoBehaviour
 {
-    public List<Transform> trees = new List<Transform>();
+    private List<GameObject> trees = new List<GameObject>();
 
     [SerializeField]
     private List<EnemySpawnOption> enemies = new List<EnemySpawnOption>();
@@ -59,15 +59,20 @@ public class gameController : MonoBehaviour
 
     public Transform GetClosestTree(Vector3 pos)
     {
-        Transform closest = trees[0];
-        float closestDistance = Vector3.Distance(trees[0].position, pos);
+        if(trees.Count == 0)
+        {
+            return null;
+        }
+
+        Transform closest = trees[0].transform;
+        float closestDistance = Vector3.Distance(trees[0].transform.position, pos);
 
         for (int i = 1; i < trees.Count; i++)
         {
-            if (Vector3.Distance(trees[i].position, pos) < closestDistance)
+            if (Vector3.Distance(trees[i].transform.position, pos) < closestDistance)
             {
-                closest = trees[i];
-                closestDistance = Vector3.Distance(trees[i].position, pos);
+                closest = trees[i].transform;
+                closestDistance = Vector3.Distance(trees[i].transform.position, pos);
             }
         }
 
@@ -123,6 +128,11 @@ public class gameController : MonoBehaviour
         foreach (var enemy in gameEnemies)
         {
             var closest = GetClosestTree(enemy.transform.position);
+            if (closest == null)
+            {
+                return;
+            }
+
             float closestDistance = Vector3.Distance(enemy.transform.position, closest.position);
 
 
@@ -131,6 +141,11 @@ public class gameController : MonoBehaviour
                 enemy.transform.position = Vector3.MoveTowards(enemy.transform.position, closest.position, enemySpeed * 0.001f);
             }
         }
+    }
+
+    public void AddTree(GameObject tree)
+    {
+        trees.Add(tree);
     }
 
 

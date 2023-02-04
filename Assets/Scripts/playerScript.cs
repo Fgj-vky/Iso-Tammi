@@ -8,6 +8,8 @@ public class playerScript : MonoBehaviour
     private GameObject? cameraTarget;
     [SerializeField]
     private GameObject playerCamera;
+    [SerializeField]
+    private GameObject treePrefab;
 
     [SerializeField]
     private float cameraHeight = 10f;
@@ -68,9 +70,10 @@ public class playerScript : MonoBehaviour
             {
                 if (hit.collider.gameObject.tag == "Ground")
                 {
-                    Debug.Log("CLicked ground");
+                    GameObject tree = Instantiate(treePrefab, hit.point, Quaternion.identity);
+                    this.gameController.AddTree(tree);
+                    
                 }
-                //Debug.Log(hit.point);
             }
 
 
@@ -147,7 +150,7 @@ public class playerScript : MonoBehaviour
 
         if (distance > 0.1f)
         {
-            focusPoint = Vector3.Lerp(currentPoint, targetPoint, cameraSpeed);
+            focusPoint = Vector3.Lerp(currentPoint, targetPoint, cameraSpeed * Time.deltaTime);
         }
     }
 

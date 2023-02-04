@@ -9,7 +9,8 @@ public class treeScript : MonoBehaviour
 
     public GameObject healthBar;
 
-    public GameObject projectile;
+    [SerializeField]
+    private GameObject projectile;
 
     public Transform projectileSpawnPoint;
 
@@ -17,6 +18,8 @@ public class treeScript : MonoBehaviour
 
     [SerializeField]
     private float attackRate;
+    [SerializeField]
+    private float idleAttackRate;
     private float attackTimer = 0;
     [SerializeField]
     private float attackRange;
@@ -46,9 +49,14 @@ public class treeScript : MonoBehaviour
         attackTimer -= Time.deltaTime;
         // Billboard the health bars towards the camera
         healthBar.transform.parent.transform.LookAt(playerCamera.transform);
+
+        if (attackTimer <= attackRate - idleAttackRate)
+        {
+            Attack();
+        }
     }
 
-    public bool CanAttack(float dist)
+    private bool CanAttack(float dist)
     {
         if (dist > attackRange)
         {
@@ -101,5 +109,31 @@ public class treeScript : MonoBehaviour
     public void PlayShootSound()
     {
         audioSource.Play();
+    }
+
+    public void Attack()
+    {
+        if(transform == null)
+        {
+            return;
+        }
+
+        var closestE = controller.GetClosestEnemy(transform.position);
+
+        if (closestE == null)
+        {
+            return;
+        }
+
+        var dist = Vector3.Distance(transform.position, closestE.transform.position);
+
+        if (!CanAttack(dist))
+        {
+            return;
+        }
+
+        var projectile = Instantiate(this.projectile, projectileSpawnPoint.position, Quaternion.identity);
+        PlayShootSound();
+        projectile.GetComponent<projectileScript>().gameController = controller;
     }
 }

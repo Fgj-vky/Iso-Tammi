@@ -81,7 +81,7 @@ public class hotBarController : MonoBehaviour
 
     public void AddRandomCard()
     {
-        AddCard(Random.Range(0, cards.Count));
+        AddCard(Random.Range(0, cardPrefabs.Length));
     }
 
     private void AlignCards()

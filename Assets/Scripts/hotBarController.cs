@@ -31,7 +31,7 @@ public class hotBarController : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && !player.GetComponent<playerScript>().paused)
         {
             PointerEventData ped = new PointerEventData(EventSystem.current);
             ped.position = Input.mousePosition;

@@ -24,6 +24,9 @@ public class playerScript : MonoBehaviour
     [SerializeField]
     private float maxCameraDistance = 20f;
 
+    [SerializeField]
+    private GameObject pauseOverlay;
+
     private treeScript targetTreeScript;
     private gameController gameController;
     private hotBarController hotBarController;
@@ -47,10 +50,12 @@ public class playerScript : MonoBehaviour
     [SerializeField]
     private float cardTimeout = 0.5f;
     private float cardTimer;
+    public bool paused = false;
 
     // Start is called before the first frame update
     void Start()
     {
+        hidePauseOverlay();
         cardTimer = cardTimeout;
         cardPoints = 0;
         gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<gameController>();
@@ -72,7 +77,7 @@ public class playerScript : MonoBehaviour
             }
         }
 
-        if (Input.GetMouseButton(1))
+        if (Input.GetMouseButton(1) && !paused)
         {
             Vector2 mousePos = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
             if (!mouseDragging)
@@ -93,7 +98,7 @@ public class playerScript : MonoBehaviour
         }
 
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && !paused)
         {
             RaycastHit hit;
             Ray ray = playerCamera.GetComponent<Camera>().ScreenPointToRay(Input.mousePosition);
@@ -143,8 +148,21 @@ public class playerScript : MonoBehaviour
         }
         if(Input.GetKeyDown(KeyCode.Escape))
         {
-            UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenu");
-            UnityEngine.SceneManagement.SceneManager.UnloadSceneAsync("testing-scene");
+            paused = !paused;
+
+            if (paused)
+            {
+                Time.timeScale = 0f;
+                showPauseOverlay();
+            }
+            else
+            {
+                Time.timeScale = 1f;
+                hidePauseOverlay();
+            }
+
+            //UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenu");
+            //UnityEngine.SceneManagement.SceneManager.UnloadSceneAsync("testing-scene");
         }
 
         // Camera offset
@@ -219,5 +237,15 @@ public class playerScript : MonoBehaviour
     public void AddPoints(int amount)
     {
         cardPoints += amount;
+    }
+
+    public void showPauseOverlay()
+    {
+        pauseOverlay.active = true;
+    }
+
+    public void hidePauseOverlay()
+    {
+        pauseOverlay.active = false;
     }
 }

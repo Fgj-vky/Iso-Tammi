@@ -133,7 +133,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 41dd08128425b55e6a5750802ccb0b09, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 41dd08128425b55e6a5750802ccb0b09, type: 3}
       propertyPath: m_LocalPosition.x
@@ -208,6 +208,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 41dd08128425b55e6a5750802ccb0b09, type: 3}
+--- !u!1 &499908627 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1162751917118872126, guid: ac7982d35aac78043a782ae40859f663, type: 3}
+  m_PrefabInstance: {fileID: 1170018627}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &642758063 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9219250404387403674, guid: d7e211ab4a36f4195a30838063ebbfba, type: 3}
@@ -446,7 +451,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1001 &1170018627
 PrefabInstance:
@@ -466,7 +471,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7195250449301364493, guid: ac7982d35aac78043a782ae40859f663, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7195250449301364493, guid: ac7982d35aac78043a782ae40859f663, type: 3}
       propertyPath: m_LocalPosition.x
@@ -531,7 +536,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4520012228129751752, guid: 10f4cb4c128634cacb5af353138461e2, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4520012228129751752, guid: 10f4cb4c128634cacb5af353138461e2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -577,6 +582,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameController
       objectReference: {fileID: 0}
+    - target: {fileID: 4520012228129751755, guid: 10f4cb4c128634cacb5af353138461e2, type: 3}
+      propertyPath: mainTree
+      value: 
+      objectReference: {fileID: 499908627}
     - target: {fileID: 4520012228129751755, guid: 10f4cb4c128634cacb5af353138461e2, type: 3}
       propertyPath: enemySpeed
       value: 20
@@ -663,7 +672,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &1650132643 stripped
 AudioSource:

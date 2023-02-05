@@ -23,6 +23,10 @@ public class mainTreeScript : MonoBehaviour
 
     private void OnDestroy()
     {
+        if(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex != 0)
+        {
+            return;
+        }
         UnityEngine.SceneManagement.SceneManager.LoadScene("GameOverScene");
         UnityEngine.SceneManagement.SceneManager.UnloadSceneAsync("testing-scene");
     }

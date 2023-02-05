@@ -23,7 +23,7 @@ public class projectileScript : MonoBehaviour
     bool delete = false;
 
     // Start is called before the first frame update
-    void Start()
+    protected void Start()
     {
         spriteRenderers = gameObject.GetComponentsInChildren<SpriteRenderer>();
         foreach (var renderer in spriteRenderers)
@@ -33,7 +33,7 @@ public class projectileScript : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    protected void Update()
     {
         if (gameController == null) return;
 

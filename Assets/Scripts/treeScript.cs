@@ -17,10 +17,10 @@ public class treeScript : MonoBehaviour
     public gameController controller;
 
     [SerializeField]
-    private float attackRate;
+    protected float attackRate;
     [SerializeField]
     private float idleAttackRate;
-    private float attackTimer = 0;
+    protected float attackTimer = 0;
     [SerializeField]
     private float attackRange;
 
@@ -56,7 +56,7 @@ public class treeScript : MonoBehaviour
         }
     }
 
-    protected bool CanAttack()
+    protected virtual bool CanAttack()
     {
         if (transform == null)
         {

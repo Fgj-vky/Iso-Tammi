@@ -19,6 +19,20 @@ public class birchScript : treeScript
         base.Start();
     }
 
+    protected override bool CanAttack()
+    {
+        if (transform == null)
+        {
+            return false;
+        }
+        if (attackTimer < 0)
+        {
+            attackTimer = attackRate;
+            return true;
+        }
+        return false;
+    }
+
     public override void Attack()
     {
         if (!CanAttack())
@@ -29,7 +43,7 @@ public class birchScript : treeScript
         for(int i = 0; i < projectileAmount; i++)
         {
             var projectile = Instantiate(this.projectile, projectileSpawnPoint.position + new Vector3(Mathf.Sin(projectileDegrees * i), 0, Mathf.Cos(projectileDegrees * i)), Quaternion.identity);
-            projectile.GetComponent<projectileScript>().gameController = controller;
+            projectile.GetComponent<birchProjectileScript>().gameController = controller;
         }
         PlayShootSound();
     }

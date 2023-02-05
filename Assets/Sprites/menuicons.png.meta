@@ -169,6 +169,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: menuicons_3
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1de547a4feec8af3d8fa4c627157a7ef
+      internalID: -1769251444
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -181,6 +202,7 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       menuicons_0: -1227034208
+      menuicons_3: -1769251444
       menuicons_1: 1614980760
       menuicons_2: -360976488
   mipmapLimitGroupName: 

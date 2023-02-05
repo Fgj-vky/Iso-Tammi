@@ -76,7 +76,7 @@ public class enemyScript : MonoBehaviour
             targetTreeScript?.modifyHealth(-damage);
             if (targetTreeScript)
             {
-                // audioSource.Play();
+                audioSource.Play();
             }
             attackTimer = attackRate;
         }

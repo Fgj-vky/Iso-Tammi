@@ -611,7 +611,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4520012228129751755, guid: 10f4cb4c128634cacb5af353138461e2, type: 3}
       propertyPath: survivalTimeInMinutes
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4520012228129751755, guid: 10f4cb4c128634cacb5af353138461e2, type: 3}
       propertyPath: enemies.Array.data[1].Prefab

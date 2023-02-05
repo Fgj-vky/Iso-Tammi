@@ -84,7 +84,7 @@ public class gameController : MonoBehaviour
         return closest;
     }
 
-    public GameObject GetClosestEnemy(Vector3 pos)
+    public GameObject GetClosestEnemy(Vector3 pos, float? maxDist = null)
     {
         if(gameEnemies.Count == 0)
         {
@@ -103,7 +103,30 @@ public class gameController : MonoBehaviour
             }
         }
 
-        return closest;
+        if (!maxDist.HasValue || closestDistance <= maxDist)
+        {
+            return closest;
+        }
+        return null;
+    }
+    public List<GameObject> GetEnemiesInArea(Vector3 pos, float radius)
+    {
+        if (gameEnemies.Count == 0)
+        {
+            return null;
+        }
+
+        List<GameObject> enemiesInArea = new List<GameObject>();
+
+        for (int i = 0; i < gameEnemies.Count; i++)
+        {
+            if (Vector3.Distance(gameEnemies[i].transform.position, pos) < radius)
+            {
+                enemiesInArea.Add(gameEnemies[i]);
+            }
+        }
+
+        return enemiesInArea;
     }
 
     private void CreateWave(Vector3 position)
@@ -133,6 +156,7 @@ public class gameController : MonoBehaviour
         gameEnemies.Add(enemy);
         enemyScripts.Add(enemy.GetComponent<enemyScript>());
     }
+    
     private void MoveEnemies()
     {
         foreach (var enemy in enemyScripts)

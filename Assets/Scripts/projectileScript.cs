@@ -47,7 +47,7 @@ public class projectileScript : MonoBehaviour
             return;
         }
 
-        var enemy = gameController.GetClosestEnemy(transform.position);
+        var enemy = getTarget();
 
         if(enemy == null)
         {
@@ -65,13 +65,22 @@ public class projectileScript : MonoBehaviour
         }
         else
         {
+            onHit(enemy);
+        }
+    }
+
+    protected virtual GameObject getTarget()
+    {
+        return gameController.GetClosestEnemy(transform.position);
+    }
+
+    protected virtual void onHit(GameObject enemy)
+    {
             enemy.GetComponent<enemyScript>().GetHit(damage);
             foreach (var renderer in spriteRenderers)
             {
                 renderer.enabled = false;
                 delete = true;
             }
-
-        }
     }
 }

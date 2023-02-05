@@ -193,6 +193,7 @@ MonoBehaviour:
   attackRange: 25
   audioSource: {fileID: 7099082985343680652}
   deathAudioSourcePrefab: {fileID: 7690908770873381608, guid: 2dca6e16c06c54c41990d337fe2ef67c, type: 3}
+  maxHealth: 300
   projectileAmount: 5
   projectileRadius: 1.5
 --- !u!1 &2118483813950516703 stripped

@@ -95,9 +95,21 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1336503526773506345, guid: 8fb213ce999b74d21a7b25363c0ff665, type: 3}
+      propertyPath: attackRate
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1336503526773506345, guid: 8fb213ce999b74d21a7b25363c0ff665, type: 3}
       propertyPath: projectile
       value: 
       objectReference: {fileID: 1959652297137473165, guid: fce1f267181b0c541a23ad945d99f28e, type: 3}
+    - target: {fileID: 1336503526773506345, guid: 8fb213ce999b74d21a7b25363c0ff665, type: 3}
+      propertyPath: attackRange
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 1336503526773506345, guid: 8fb213ce999b74d21a7b25363c0ff665, type: 3}
+      propertyPath: idleAttackRate
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 2043028808393797684, guid: 8fb213ce999b74d21a7b25363c0ff665, type: 3}
       propertyPath: m_RootOrder
       value: 0

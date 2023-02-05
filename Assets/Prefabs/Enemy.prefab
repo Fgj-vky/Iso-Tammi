@@ -212,7 +212,7 @@ MonoBehaviour:
   speed: 1
   damage: 5
   attackRate: 1
-  maxHealth: 100
+  maxHealth: 75
   healthBar: {fileID: 6937195463429535061}
   pointValue: 1
   audioSource: {fileID: 7128168081017726664}

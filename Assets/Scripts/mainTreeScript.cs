@@ -23,7 +23,7 @@ public class mainTreeScript : MonoBehaviour
 
     private void OnDestroy()
     {
-        if(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex != 0)
+        if(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex != 1)
         {
             return;
         }

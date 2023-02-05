@@ -29,7 +29,7 @@ public class treeScript : MonoBehaviour
 
     [SerializeField]
     private GameObject deathAudioSourcePrefab;
-
+    [SerializeField]
     private int maxHealth = 100;
     private int health = 1000;
 

@@ -231,7 +231,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 415593848407715062, guid: d7e211ab4a36f4195a30838063ebbfba, type: 3}
       propertyPath: cardThreshold
-      value: 1
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 415593848407715062, guid: d7e211ab4a36f4195a30838063ebbfba, type: 3}
       propertyPath: cameraDistance
@@ -512,6 +512,10 @@ PrefabInstance:
       propertyPath: audioSource
       value: 
       objectReference: {fileID: 1650132643}
+    - target: {fileID: 7857892022169120272, guid: ac7982d35aac78043a782ae40859f663, type: 3}
+      propertyPath: idleAttackRate
+      value: 9999
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -587,7 +591,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4520012228129751755, guid: 10f4cb4c128634cacb5af353138461e2, type: 3}
       propertyPath: enemyWaveInterval
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4520012228129751755, guid: 10f4cb4c128634cacb5af353138461e2, type: 3}
       propertyPath: enemies.Array.size
@@ -607,7 +611,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4520012228129751755, guid: 10f4cb4c128634cacb5af353138461e2, type: 3}
       propertyPath: survivalTimeInMinutes
-      value: 0.1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4520012228129751755, guid: 10f4cb4c128634cacb5af353138461e2, type: 3}
       propertyPath: enemies.Array.data[1].Prefab
@@ -623,7 +627,7 @@ PrefabInstance:
       objectReference: {fileID: 3972956907885321862, guid: f7c094e88e6619e4aa1703e07507d56c, type: 3}
     - target: {fileID: 4520012228129751755, guid: 10f4cb4c128634cacb5af353138461e2, type: 3}
       propertyPath: enemies.Array.data[2].Weight
-      value: 0.1
+      value: 0.05
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

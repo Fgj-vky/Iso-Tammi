@@ -8,6 +8,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -2542791193519030533, guid: 2e1153c5cfb8ad8499b2252860d24a70, type: 3}
+      propertyPath: speed
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -2542791193519030533, guid: 2e1153c5cfb8ad8499b2252860d24a70, type: 3}
+      propertyPath: damage
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: -2542791193519030533, guid: 2e1153c5cfb8ad8499b2252860d24a70, type: 3}
+      propertyPath: maxHealth
+      value: 125
+      objectReference: {fileID: 0}
+    - target: {fileID: -2542791193519030533, guid: 2e1153c5cfb8ad8499b2252860d24a70, type: 3}
+      propertyPath: attackRate
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -2542791193519030533, guid: 2e1153c5cfb8ad8499b2252860d24a70, type: 3}
+      propertyPath: pointValue
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 927820449381822697, guid: 2e1153c5cfb8ad8499b2252860d24a70, type: 3}
       propertyPath: m_RootOrder
       value: 0

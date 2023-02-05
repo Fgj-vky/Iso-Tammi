@@ -8,6 +8,8 @@ public class acornScript : projectileScript
     private int splashDamage;
     [SerializeField]
     private float splashRadius;
+    [SerializeField]
+    private GameObject audioSource;
 
     [SerializeField]
     private GameObject splashEmitter;
@@ -19,6 +21,7 @@ public class acornScript : projectileScript
         enemiesInArea.ForEach(e => e.GetComponent<enemyScript>().GetHit(splashDamage));
 
         Instantiate(splashEmitter, transform.position, Quaternion.identity);
+        Instantiate(audioSource, transform.position, Quaternion.identity);
 
         base.onHit(enemy);
     }

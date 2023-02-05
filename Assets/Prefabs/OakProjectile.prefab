@@ -160,4 +160,5 @@ MonoBehaviour:
   damage: 75
   splashDamage: 10
   splashRadius: 10
+  audioSource: {fileID: 2247358759306828335, guid: 45af36c2de69f4ddb806cc6a17bb3175, type: 3}
   splashEmitter: {fileID: 2879869020289531962, guid: f50a099b328236a42affc32be1e3ac07, type: 3}

@@ -3,7 +3,11 @@ guid: 44b7c3f73fc56ef44898d04584731288
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - gameController: {instanceID: 0}
+  - projectileSprite: {instanceID: 0}
+  - audioSource: {fileID: 8485133491079852768, guid: 45af36c2de69f4ddb806cc6a17bb3175, type: 3}
+  - splashEmitter: {fileID: 2879869020289531962, guid: f50a099b328236a42affc32be1e3ac07, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

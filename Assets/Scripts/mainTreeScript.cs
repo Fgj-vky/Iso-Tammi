@@ -23,7 +23,7 @@ public class mainTreeScript : MonoBehaviour
 
     private void OnDestroy()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenu");
+        UnityEngine.SceneManagement.SceneManager.LoadScene("GameOverScene");
         UnityEngine.SceneManagement.SceneManager.UnloadSceneAsync("testing-scene");
     }
 }

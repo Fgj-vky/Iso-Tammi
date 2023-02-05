@@ -13,6 +13,10 @@ public class gameController : MonoBehaviour
     private List<enemyScript> enemyScripts = new List<enemyScript>();
 
     [SerializeField]
+    private float survivalTimeInMinutes;
+    private float survivalTimer;
+
+    [SerializeField]
     private float enemySpeed = 1f;
 
     [SerializeField]
@@ -41,6 +45,7 @@ public class gameController : MonoBehaviour
     {
         enemyWaveSize = enmyWaveStartSize;
         enemyWaveTimer = enemyWaveInterval;
+        survivalTimer = survivalTimeInMinutes * 60;
 
         foreach (var enemy in enemies)
         {
@@ -54,6 +59,12 @@ public class gameController : MonoBehaviour
         MoveEnemies();
 
         enemyWaveTimer -= Time.deltaTime;
+        survivalTimer -= Time.deltaTime;
+        if(survivalTimer <= 0)
+        {
+            UnityEngine.SceneManagement.SceneManager.LoadScene("WinningScreen");
+            UnityEngine.SceneManagement.SceneManager.UnloadSceneAsync("testing-scene");
+        }
         if(enemyWaveTimer <= 0)
         {
             CreateWave(GenerateWavePosition());

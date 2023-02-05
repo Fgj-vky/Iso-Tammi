@@ -128,8 +128,36 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7317180933455564111, guid: 95cdf226947f64940b9fdd3ceab9b030, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3545246621676058693, guid: 95cdf226947f64940b9fdd3ceab9b030, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -6978138696740943499}
   m_SourcePrefab: {fileID: 100100000, guid: 95cdf226947f64940b9fdd3ceab9b030, type: 3}
+--- !u!1 &3420923914321920393 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3545246621676058693, guid: 95cdf226947f64940b9fdd3ceab9b030, type: 3}
+  m_PrefabInstance: {fileID: 2182749555931199948}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &-6978138696740943499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3420923914321920393}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44b7c3f73fc56ef44898d04584731288, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameController: {fileID: 0}
+  projectileSprite: {fileID: 21300000, guid: 6579fcf8aed464643b00bce1eb5ddcb9, type: 3}
+  speed: 11.07
+  damage: 75
+  splashDamage: 10
+  splashRadius: 10
+  splashEmitter: {fileID: 2879869020289531962, guid: f50a099b328236a42affc32be1e3ac07, type: 3}

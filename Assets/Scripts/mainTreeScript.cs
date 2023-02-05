@@ -7,6 +7,8 @@ public class mainTreeScript : MonoBehaviour
     [SerializeField]
     private float scaleFactor;
 
+    public bool gameWon = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,7 +29,11 @@ public class mainTreeScript : MonoBehaviour
         {
             return;
         }
-        UnityEngine.SceneManagement.SceneManager.LoadScene("GameOverScene");
-        UnityEngine.SceneManagement.SceneManager.UnloadSceneAsync("testing-scene");
+        if(!gameWon)
+        {
+            UnityEngine.SceneManagement.SceneManager.LoadScene("GameOverScene");
+            UnityEngine.SceneManagement.SceneManager.UnloadSceneAsync("testing-scene");
+
+        }
     }
 }

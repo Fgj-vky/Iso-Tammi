@@ -17,6 +17,9 @@ public class gameController : MonoBehaviour
     private float survivalTimer;
 
     [SerializeField]
+    private GameObject mainTree;
+
+    [SerializeField]
     private float enemySpeed = 1f;
 
     [SerializeField]
@@ -62,6 +65,7 @@ public class gameController : MonoBehaviour
         survivalTimer -= Time.deltaTime;
         if(survivalTimer <= 0)
         {
+            mainTree.GetComponent<mainTreeScript>().gameWon = true;
             UnityEngine.SceneManagement.SceneManager.LoadScene("WinningScreen");
             UnityEngine.SceneManagement.SceneManager.UnloadSceneAsync("testing-scene");
         }
